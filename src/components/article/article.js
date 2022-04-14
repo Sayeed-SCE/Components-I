@@ -123,6 +123,7 @@ date.textContent = data.date;
 paragraph1.textContent = data.firstParagraph;
 paragraph2.textContent = data.secondParagraph;
 paragraph3.textContent = data.thirdParagraph;
+expandButton.textContent = "+";
 
 expandButton.addEventListener('click', () => {
   article.classList.toggle('article-open')
@@ -131,7 +132,11 @@ expandButton.addEventListener('click', () => {
 return article;
 
 }
-console.log (articleMaker(article))
+const entry = document.querySelector('.articles')
+data.forEach(article => {
+  const articleElem = articleMaker(article);
+  entry.appendChild(articleElem)
+})
   
 
 
@@ -160,3 +165,41 @@ console.log (articleMaker(article))
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+// function articleMaker(data) {
+//   const article = document.createElement('div')
+//   const title = document.createElement('h2')
+//   const date = document.createElement('p')
+//   const paragraph1 = document.createElement('p')
+//   const paragraph2 = document.createElement('p')
+//   const paragraph3 = document.createElement('p')
+//   const expandButton = document.createElement('span')
+
+//   article.append(title, date, paragraph1, paragraph2, paragraph3, expandButton)
+//   article.classList.add('article')
+//   date.classList.add('date')
+//   expandButton.classList.add('expandButton')
+
+//   title.textContent = data.title 
+//   date.textContent = data.date
+//   paragraph1.textContent = data.firstParagraph
+//   paragraph2.textContent = data.secondParagraph
+//   paragraph3.textContent = data.thirdParagraph
+
+//   expandButton.addEventListener('click',() =>{
+//     article.classList.toggle('article-open')
+
+//   })
+
+//   return article;
+
+// }
+// console.log(articleMaker(article))
+// const articleElem = article.map(elem =>{
+//   return articleMaker(elem)
+// })
+
+// articleElem.forEach(elem => {
+//   accordion.appendChild(elem);
+
+// })
