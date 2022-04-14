@@ -94,6 +94,51 @@ const data = [
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
+  */
+function articleMaker (data){
+const article = document.createElement('div')
+const title = document.createElement('h2')
+const date = document.createElement('p')
+const paragraph1 = document.createElement('p')
+const paragraph2 = document.createElement('p')
+const paragraph3 = document.createElement('p')
+const expandButton = document.createElement('span')
+
+
+
+
+article.appendChild(title);
+article.appendChild(date);
+article.appendChild(paragraph1);
+article.appendChild(paragraph2);
+article.appendChild(paragraph3);
+article.appendChild(expandButton);
+
+article.classList.add('article')
+date.classList.add('date');
+expandButton.classList.add('expandButton')
+
+title.textContent = data.title;
+date.textContent = data.date;
+paragraph1.textContent = data.firstParagraph;
+paragraph2.textContent = data.secondParagraph;
+paragraph3.textContent = data.thirdParagraph;
+
+expandButton.addEventListener('click', () => {
+  article.classList.toggle('article-open')
+})
+
+return article;
+
+}
+console.log (articleMaker(article))
+  
+
+
+
+
+
+/*
 
   <div class="article">
     <h2>{title of the article}</h2>
